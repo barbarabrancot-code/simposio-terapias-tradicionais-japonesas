@@ -1,0 +1,148 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --cor-primaria: #c0392b;
+  --cor-secundaria: #2c3e50;
+  --cor-fundo: #f9f5f0;
+  --cor-texto: #333;
+  --fonte-titulo: 'Georgia', serif;
+  --fonte-corpo: 'Segoe UI', sans-serif;
+}
+
+body {
+  font-family: var(--fonte-corpo);
+  color: var(--cor-texto);
+  background-color: var(--cor-fundo);
+}
+
+/* NAV */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(44, 62, 80, 0.95);
+  z-index: 100;
+  padding: 1rem 2rem;
+}
+
+nav {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: #fff;
+  font-family: var(--fonte-titulo);
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+nav ul a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+
+nav ul a:hover {
+  color: var(--cor-primaria);
+}
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+              url('../images/hero-bg.jpg') center/cover no-repeat;
+  color: #fff;
+  padding: 2rem;
+}
+
+.hero-content h1 {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+/* BOTÃO */
+.btn-primary {
+  display: inline-block;
+  background: var(--cor-primaria);
+  color: #fff;
+  padding: 0.85rem 2rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.btn-primary:hover {
+  background: #a93226;
+  transform: translateY(-2px);
+}
+
+/* SEÇÕES */
+.section {
+  padding: 5rem 2rem;
+}
+
+.section-alt {
+  background: #eee8e0;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.section h2 {
+  font-family: var(--fonte-titulo);
+  font-size: 2rem;
+  color: var(--cor-secundaria);
+  margin-bottom: 1.5rem;
+}
+
+.section p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+/* FOOTER */
+footer {
+  background: var(--cor-secundaria);
+  color: #ccc;
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.875rem;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+  }
+}
