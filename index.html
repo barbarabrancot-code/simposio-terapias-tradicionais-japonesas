@@ -283,11 +283,12 @@
 
     .hero {
       position: relative;
-      height: 75vh;
-      min-height: 480px;
+      min-height: 75vh;
       display: flex;
       align-items: center;
       justify-content: center;
+      padding-top: calc(var(--header-h) + 3rem);
+      padding-bottom: 4rem;
       background-color: var(--color-bg);
       background-image: url('midia/imagens/c2_14.jpg');
       background-size: cover;
@@ -783,13 +784,8 @@
       .header__nav { display: none; }
       .hamburger   { display: flex; }
 
-      .hero {
-        height: auto;
-        min-height: 100svh;
-      }
       .hero__content {
-        padding-top: calc(var(--header-h) + 2.5rem);
-        padding-bottom: 3rem;
+        padding-top: 1.5rem;
       }
 
       .hero__anchor-nav { justify-content: flex-start; }
