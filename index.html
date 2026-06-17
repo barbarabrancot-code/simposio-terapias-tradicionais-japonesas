@@ -44,7 +44,7 @@
     body {
       font-family: var(--font-sans);
       color: var(--color-text);
-      background: var(--color-white);
+      background: var(--color-bg);
       line-height: 1.7;
     }
 
@@ -156,7 +156,7 @@
       top: 0; left: 0;
       width: 100%;
       height: var(--header-h);
-      background: rgba(255, 255, 255, 0.97);
+      background: rgba(248, 246, 242, 0.97);
       border-bottom: 1px solid var(--color-border);
       display: flex;
       align-items: center;
@@ -234,7 +234,7 @@
     .menu-overlay {
       position: fixed;
       inset: 0;
-      background: var(--color-white);
+      background: var(--color-bg);
       z-index: 999;
       display: flex;
       flex-direction: column;
@@ -282,23 +282,23 @@
 
     .hero {
       position: relative;
-      height: 100vh;
-      min-height: 620px;
+      height: 75vh;
+      min-height: 480px;
       display: flex;
       align-items: center;
       justify-content: center;
       background-color: var(--color-bg);
-      background-image: url('images/hero-bg.jpg');
+      background-image: url('midia/imagens/c2_14.jpg');
       background-size: cover;
       background-position: center;
     }
 
-    /* Gradiente sobre a imagem */
+    /* Máscara gradiente sobre a imagem */
     .hero::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(5, 57, 126, 0.80) 5%, rgba(73, 149, 126, 0.70) 95%);
+      background: linear-gradient(135deg, rgba(5, 57, 126, 0.85) 5%, rgba(73, 149, 126, 0.85) 95%);
     }
 
     .hero__content {
@@ -336,7 +336,7 @@
 
     .hero__desc {
       font-size: clamp(0.85rem, 1.7vw, 0.98rem);
-      color: rgba(255, 255, 255, 0.8);
+      color: rgba(255, 255, 255, 0.82);
       line-height: 1.8;
       margin-bottom: 1.75rem;
     }
@@ -384,8 +384,26 @@
 
     #sobre {
       padding: var(--section-py) 2rem;
-      background: var(--color-white);
-      text-align: left;
+      background: var(--color-bg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sobre__watermark {
+      position: absolute;
+      left: -2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 420px;
+      opacity: 0.22;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .sobre__inner {
+      max-width: var(--container);
+      margin: 0 auto;
+      position: relative;
     }
 
     .sobre__title {
@@ -398,12 +416,20 @@
     }
 
     .sobre__text {
-      max-width: 700px;
+      max-width: 760px;
       font-size: 1.02rem;
       color: var(--color-muted);
       line-height: 1.9;
     }
     .sobre__text p + p { margin-top: 1.25rem; }
+
+    @media (max-width: 768px) {
+      .sobre__watermark {
+        width: 100%;
+        left: 0;
+        opacity: 0.08;
+      }
+    }
 
 
     /* ================================================
@@ -412,7 +438,7 @@
 
     .content-section {
       padding: var(--section-py) 2rem;
-      background: var(--color-white);
+      background: var(--color-bg);
       border-top: 1px solid var(--color-border);
     }
 
@@ -548,7 +574,7 @@
 
     #videos {
       padding: var(--section-py) 2rem;
-      background: var(--color-white);
+      background: var(--color-bg);
       border-top: 1px solid var(--color-border);
       text-align: center;
     }
@@ -872,8 +898,10 @@
   <!-- 3. SOBRE O EVENTO                                -->
   <!-- ================================================ -->
   <section id="sobre">
-    <h2 class="sobre__title">Sobre o Evento</h2>
-    <div class="sobre__text">
+    <img src="midia/svgs/Símbolo positivo-1.svg" alt="" class="sobre__watermark">
+    <div class="sobre__inner">
+      <h2 class="sobre__title">Sobre o Evento</h2>
+      <div class="sobre__text">
       <p>
         O 2º Simpósio de Terapias Tradicionais Japonesas é um encontro dedicado à integração
         entre ensino, desenvolvimento humano e os saberes da cultura japonesa aplicados ao
@@ -890,6 +918,7 @@
         terapêuticas que promovem equilíbrio, bem-estar e reconexão consigo mesmo,
         valorizando conhecimentos construídos ao longo de gerações.
       </p>
+    </div>
     </div>
   </section>
 
