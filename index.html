@@ -201,7 +201,15 @@
       font-size: 0.75rem;
       letter-spacing: 0.1em;
       color: var(--color-muted);
+      cursor: pointer;
+      user-select: none;
+      background: none;
+      border: none;
+      font-family: var(--font-sans);
+      padding: 0;
+      transition: color 0.2s;
     }
+    .header__lang:hover { color: var(--color-primary); }
 
     /* Hambúrguer */
     .hamburger {
@@ -721,10 +729,11 @@
       margin-bottom: 1.5rem;
     }
 
-    /* Área de logos (placeholders) */
+    /* Área de logos */
     .footer__logos {
       display: flex;
       justify-content: center;
+      flex-wrap: wrap;
       align-items: center;
       gap: 2rem;
       flex-wrap: wrap;
@@ -740,6 +749,13 @@
       height: 46px;
       width: auto;
       object-fit: contain;
+    }
+
+    .footer__logo-img--patrocinador {
+      height: 64px;
+    }
+    .footer__logo-img--apoiador {
+      height: 56px;
     }
 
     .footer__divider {
@@ -825,23 +841,23 @@
     <ul class="overlay__list">
 
       <li class="overlay__item">
-        <a href="#sobre" class="overlay__link" onclick="closeMenu()">Sobre o Evento</a>
+        <a href="#sobre" class="overlay__link" onclick="closeMenu()" data-i18n="overlay-sobre">Sobre o Evento</a>
       </li>
 
       <li class="overlay__item">
-        <a href="#participar" class="overlay__link" onclick="closeMenu()">Por que Participar</a>
+        <a href="#participar" class="overlay__link" onclick="closeMenu()" data-i18n="overlay-participar">Por que Participar</a>
       </li>
 
       <li class="overlay__item">
-        <a href="#programacao" class="overlay__link" onclick="closeMenu()">Programação</a>
+        <a href="#programacao" class="overlay__link" onclick="closeMenu()" data-i18n="overlay-programacao">Programação</a>
         <div class="overlay__sub">
-          <a href="#programacao" onclick="closeMenu()">Simpósio de Terapias</a>
-          <a href="#cultura" onclick="closeMenu()">Cultivar a Cultura</a>
+          <a href="#programacao" onclick="closeMenu()" data-i18n="overlay-simposio">Simpósio de Terapias</a>
+          <a href="#cultura" onclick="closeMenu()" data-i18n="overlay-cultura">Cultivar a Cultura</a>
         </div>
       </li>
 
       <li class="overlay__item">
-        <a href="#publico" class="overlay__link" onclick="closeMenu()">Público-Alvo</a>
+        <a href="#publico" class="overlay__link" onclick="closeMenu()" data-i18n="overlay-publico">Público-Alvo</a>
       </li>
 
       <li class="overlay__item">
@@ -849,11 +865,11 @@
       </li>
 
       <li class="overlay__item">
-        <a href="#info" class="overlay__link" onclick="closeMenu()">Informações</a>
+        <a href="#info" class="overlay__link" onclick="closeMenu()" data-i18n="overlay-info">Inscrições</a>
       </li>
 
       <li class="overlay__item">
-        <a href="#contato" class="overlay__link" onclick="closeMenu()">Contato</a>
+        <a href="#contato" class="overlay__link" onclick="closeMenu()" data-i18n="overlay-contato">Contato</a>
       </li>
 
     </ul>
@@ -870,18 +886,18 @@
     </a>
 
     <nav class="header__nav" aria-label="Principal">
-      <a href="#sobre">Sobre</a>
-      <a href="#participar">Por que Participar</a>
-      <a href="#programacao">Programação</a>
-      <a href="#cultura">Cultura</a>
-      <a href="#publico">Público-Alvo</a>
+      <a href="#sobre" data-i18n="nav-sobre">Sobre</a>
+      <a href="#participar" data-i18n="nav-participar">Por que Participar</a>
+      <a href="#programacao" data-i18n="nav-programacao">Programação</a>
+      <a href="#cultura" data-i18n="nav-cultura">Cultura</a>
+      <a href="#publico" data-i18n="nav-publico">Público-Alvo</a>
       <a href="#instagram">Instagram</a>
-      <a href="#info">Informações</a>
-      <a href="#contato">Contato</a>
+      <a href="#info" data-i18n="nav-info">Inscrições</a>
+      <a href="#contato" data-i18n="nav-contato">Contato</a>
     </nav>
 
     <div class="header__right">
-      <span class="header__lang">JP / PT</span>
+      <button class="header__lang" id="langToggle" onclick="toggleLang()" title="Mudar idioma">日本語</button>
       <button class="hamburger" id="menuBtn" aria-label="Abrir menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -896,18 +912,18 @@
   <section class="hero">
 
     <div class="hero__content">
-      <p class="hero__edition">2ª Edição · 2026</p>
-      <h1 class="hero__title">Simpósio de Terapias<br>Tradicionais Japonesas</h1>
-      <p class="hero__quote">"Sem raízes profundas, o trabalho perde sua essência."</p>
-      <p class="hero__desc">
+      <p class="hero__edition" data-i18n="hero-edition">2ª Edição · 2026</p>
+      <h1 class="hero__title" data-i18n="hero-title">Simpósio de Terapias<br>Tradicionais Japonesas</h1>
+      <p class="hero__quote" data-i18n="hero-quote">"Sem raízes profundas, o trabalho perde sua essência."</p>
+      <p class="hero__desc" data-i18n="hero-desc">
         Workshops, palestras e atividades culturais voltados ao aprimoramento profissional,
         à promoção da saúde e à valorização dos saberes tradicionais japoneses.
       </p>
       <div class="hero__meta">
-        <span>📅 18 e 19 de setembro de 2026</span>
-        <span>📍 Auditório do Centro de Ciências da Saúde (CSS) – UFSC · Florianópolis – SC</span>
+        <span data-i18n="hero-date">📅 18 e 19 de setembro de 2026</span>
+        <span data-i18n="hero-location">📍 Auditório do Centro de Ciências da Saúde (CSS) – UFSC · Florianópolis – SC</span>
       </div>
-      <a href="https://wa.me/554884091121" target="_blank" rel="noopener noreferrer" class="btn-primary">Entrar em contato</a>
+      <a href="#info" class="btn-primary" data-i18n="btn-inscricao">Inscreva-se</a>
     </div>
 
 
@@ -920,20 +936,20 @@
   <section id="sobre">
     <img src="midia/svgs/Símbolo positivo-1.svg" alt="" class="sobre__watermark">
     <div class="sobre__inner">
-      <h2 class="sobre__title">Sobre o Evento</h2>
+      <h2 class="sobre__title" data-i18n="sobre-title">Sobre o Evento</h2>
       <div class="sobre__text">
-      <p>
+      <p data-i18n="sobre-p1">
         O 2º Simpósio de Terapias Tradicionais Japonesas é um encontro dedicado à integração
         entre ensino, desenvolvimento humano e os saberes da cultura japonesa aplicados ao
         cuidado em saúde.
       </p>
-      <p>
+      <p data-i18n="sobre-p2">
         Após o sucesso de sua primeira edição, o evento retorna em 2026 com uma programação
         ampliada e será realizado na Universidade Federal de Santa Catarina (UFSC), reunindo
         profissionais, estudantes e interessados em terapias tradicionais japonesas, práticas
         integrativas e cultura oriental.
       </p>
-      <p>
+      <p data-i18n="sobre-p3">
         O simpósio propõe um espaço de diálogo entre a filosofia japonesa e práticas
         terapêuticas que promovem equilíbrio, bem-estar e reconexão consigo mesmo,
         valorizando conhecimentos construídos ao longo de gerações.
@@ -954,20 +970,20 @@
       </div>
 
       <div class="content-section__right">
-        <h2 class="content-section__title">Por que<br>Participar?</h2>
-        <p class="content-section__text">
+        <h2 class="content-section__title" data-i18n="participar-title">Por que<br>Participar?</h2>
+        <p class="content-section__text" data-i18n="participar-desc">
           O evento oferece uma oportunidade única para atualização profissional, troca de
           experiências e aprofundamento dos conhecimentos sobre terapias tradicionais japonesas.
         </p>
         <ul class="content-list">
-          <li>Aprendizado de novas técnicas e abordagens terapêuticas</li>
-          <li>Contato com especialistas e profissionais da área</li>
-          <li>Ampliação da rede de relacionamentos profissionais</li>
-          <li>Reflexão sobre ética, autenticidade e identidade profissional</li>
-          <li>Conhecimento sobre as origens e fundamentos filosóficos das terapias</li>
-          <li>Aproximação entre profissionais brasileiros e japoneses</li>
+          <li data-i18n="participar-li1">Aprendizado de novas técnicas e abordagens terapêuticas</li>
+          <li data-i18n="participar-li2">Contato com especialistas e profissionais da área</li>
+          <li data-i18n="participar-li3">Ampliação da rede de relacionamentos profissionais</li>
+          <li data-i18n="participar-li4">Reflexão sobre ética, autenticidade e identidade profissional</li>
+          <li data-i18n="participar-li5">Conhecimento sobre as origens e fundamentos filosóficos das terapias</li>
+          <li data-i18n="participar-li6">Aproximação entre profissionais brasileiros e japoneses</li>
         </ul>
-        <a href="https://wa.me/554884091121" target="_blank" rel="noopener noreferrer" class="link-cta">Entrar em contato</a>
+        <a href="https://wa.me/554884091121" target="_blank" rel="noopener noreferrer" class="link-cta" data-i18n="link-contato">Entrar em contato</a>
       </div>
 
     </div>
@@ -985,31 +1001,31 @@
       </div>
 
       <div class="content-section__right">
-        <h2 class="content-section__title">Simpósio de<br>Terapias Tradicionais</h2>
+        <h2 class="content-section__title" data-i18n="prog-title">Simpósio de<br>Terapias Tradicionais</h2>
 
         <div class="content-subgroup">
-          <p class="content-subgroup__label">Atividades</p>
+          <p class="content-subgroup__label" data-i18n="prog-label1">Atividades</p>
           <ul class="content-list">
-            <li>Palestras com especialistas</li>
-            <li>Mesas de debate</li>
-            <li>Workshops práticos</li>
-            <li>Práticas corporais em grupo</li>
-            <li>Exposição de trabalhos científicos</li>
+            <li data-i18n="prog-li1">Palestras com especialistas</li>
+            <li data-i18n="prog-li2">Mesas de debate</li>
+            <li data-i18n="prog-li3">Workshops práticos</li>
+            <li data-i18n="prog-li4">Práticas corporais em grupo</li>
+            <li data-i18n="prog-li5">Exposição de trabalhos científicos</li>
           </ul>
         </div>
 
         <div class="content-subgroup">
-          <p class="content-subgroup__label">Temas abordados</p>
+          <p class="content-subgroup__label" data-i18n="prog-label2">Temas abordados</p>
           <ul class="content-list">
-            <li>Origens das terapias tradicionais japonesas</li>
-            <li>Benefícios para a saúde e o bem-estar</li>
-            <li>Capacitação técnica e formação profissional</li>
-            <li>Práticas Integrativas e Complementares em Saúde (PICS)</li>
-            <li>Inserção das terapias tradicionais no contexto da saúde pública</li>
+            <li data-i18n="prog-tema1">Origens das terapias tradicionais japonesas</li>
+            <li data-i18n="prog-tema2">Benefícios para a saúde e o bem-estar</li>
+            <li data-i18n="prog-tema3">Capacitação técnica e formação profissional</li>
+            <li data-i18n="prog-tema4">Práticas Integrativas e Complementares em Saúde (PICS)</li>
+            <li data-i18n="prog-tema5">Inserção das terapias tradicionais no contexto da saúde pública</li>
           </ul>
         </div>
 
-        <a href="https://wa.me/554884091121" target="_blank" rel="noopener noreferrer" class="link-cta">Entrar em contato</a>
+        <a href="https://wa.me/554884091121" target="_blank" rel="noopener noreferrer" class="link-cta" data-i18n="link-contato">Entrar em contato</a>
       </div>
 
     </div>
@@ -1027,20 +1043,20 @@
       </div>
 
       <div class="content-section__right">
-        <h2 class="content-section__title">Cultivar<br>a Cultura</h2>
-        <p class="content-section__text">
+        <h2 class="content-section__title" data-i18n="cultura-title">Cultivar<br>a Cultura</h2>
+        <p class="content-section__text" data-i18n="cultura-desc">
           Além das atividades acadêmicas e profissionais, o evento contará com um espaço
           dedicado à cultura japonesa, promovendo experiências culturais e artísticas.
         </p>
         <ul class="content-list">
-          <li>Exposição sobre a cultura japonesa</li>
-          <li>Oficina de Mizuhiki</li>
-          <li>Exposição e oficina de Bordado Sashiko</li>
-          <li>Exposição e oficina de Shodō (escrita japonesa)</li>
-          <li>Oficina de Origami</li>
-          <li>Vivências culturais</li>
+          <li data-i18n="cultura-li1">Exposição sobre a cultura japonesa</li>
+          <li data-i18n="cultura-li2">Oficina de Mizuhiki</li>
+          <li data-i18n="cultura-li3">Exposição e oficina de Bordado Sashiko</li>
+          <li data-i18n="cultura-li4">Exposição e oficina de Shodō (escrita japonesa)</li>
+          <li data-i18n="cultura-li5">Oficina de Origami</li>
+          <li data-i18n="cultura-li6">Vivências culturais</li>
         </ul>
-        <a href="#contato" class="link-cta">Ver programação completa</a>
+        <a href="#contato" class="link-cta" data-i18n="link-programa">Ver programação completa</a>
       </div>
 
     </div>
@@ -1053,27 +1069,27 @@
   <section id="publico">
 
     <div class="section-header">
-      <h2 class="title-centered">Público-Alvo</h2>
+      <h2 class="title-centered" data-i18n="publico-title">Público-Alvo</h2>
     </div>
 
-    <p class="publico__intro">
+    <p class="publico__intro" data-i18n="publico-intro">
       O simpósio é aberto à comunidade e destinado especialmente a profissionais
       e estudantes da área da saúde interessados em terapias tradicionais e práticas integrativas.
     </p>
 
     <div class="publico__grid">
-      <span class="publico__item">Fisioterapeutas</span>
-      <span class="publico__item">Enfermeiros</span>
-      <span class="publico__item">Profissionais de Educação Física</span>
-      <span class="publico__item">Terapeutas corporais</span>
-      <span class="publico__item">Massoterapeutas</span>
-      <span class="publico__item">Estudantes da área da saúde</span>
-      <span class="publico__item">Interessados em Acupuntura e Moxaterapia</span>
-      <span class="publico__item">Praticantes de Seitai e Anmá</span>
-      <span class="publico__item">Profissionais de Shiatsu e PICs</span>
+      <span class="publico__item" data-i18n="publico-li1">Fisioterapeutas</span>
+      <span class="publico__item" data-i18n="publico-li2">Enfermeiros</span>
+      <span class="publico__item" data-i18n="publico-li3">Profissionais de Educação Física</span>
+      <span class="publico__item" data-i18n="publico-li4">Terapeutas corporais</span>
+      <span class="publico__item" data-i18n="publico-li5">Massoterapeutas</span>
+      <span class="publico__item" data-i18n="publico-li6">Estudantes da área da saúde</span>
+      <span class="publico__item" data-i18n="publico-li7">Interessados em Acupuntura e Moxaterapia</span>
+      <span class="publico__item" data-i18n="publico-li8">Praticantes de Seitai e Anmá</span>
+      <span class="publico__item" data-i18n="publico-li9">Profissionais de Shiatsu e PICs</span>
     </div>
 
-    <p class="publico__note">
+    <p class="publico__note" data-i18n="publico-note">
       Não é necessário experiência prévia nas terapias tradicionais japonesas para participar.
     </p>
 
@@ -1093,12 +1109,12 @@
       </svg>
     </div>
 
-    <h2 class="instagram__title">Acompanhe no Instagram</h2>
+    <h2 class="instagram__title" data-i18n="instagram-title">Acompanhe no Instagram</h2>
     <p class="instagram__handle">@simposioterapiastradicionais</p>
-    <p class="instagram__text">
+    <p class="instagram__text" data-i18n="instagram-text">
       Fique por dentro das novidades, programação e bastidores do evento.
     </p>
-    <a href="https://www.instagram.com/simposioterapiastradicionais?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="btn-primary">Seguir no Instagram</a>
+    <a href="https://www.instagram.com/simposioterapiastradicionais?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="btn-primary" data-i18n="btn-instagram">Seguir no Instagram</a>
 
   </section>
 
@@ -1109,19 +1125,19 @@
   <section id="info">
 
     <div class="section-header">
-      <h2 class="title-centered">Informações Gerais</h2>
+      <h2 class="title-centered" data-i18n="info-title">Inscrições</h2>
     </div>
 
     <div class="info__grid">
 
       <div>
-        <p class="info__label">Data</p>
-        <p class="info__value">18 e 19 de setembro<br>de 2026</p>
+        <p class="info__label" data-i18n="info-label-data">Data</p>
+        <p class="info__value" data-i18n="info-value-data">18 e 19 de setembro<br>de 2026</p>
       </div>
 
       <div>
-        <p class="info__label">Local</p>
-        <p class="info__value">
+        <p class="info__label" data-i18n="info-label-local">Local</p>
+        <p class="info__value" data-i18n="info-value-local">
           Auditório do CSS – Térreo<br>
           Universidade Federal de Santa Catarina<br>
           Florianópolis – SC
@@ -1129,12 +1145,17 @@
       </div>
 
       <div>
-        <p class="info__label">Participação</p>
-        <p class="info__value">Gratuita</p>
-        <span class="info__tag">Aberto ao público</span>
+        <p class="info__label" data-i18n="info-label-participacao">Participação</p>
+        <p class="info__value" data-i18n="info-value-participacao">Gratuita</p>
+        <span class="info__tag" data-i18n="info-tag">Aberto ao público</span>
       </div>
 
     </div>
+
+    <div style="margin-top: 3rem; text-align: center;">
+      <a href="https://www.sympla.com.br/evento/2-simposio-de-terapias-tradicionais-japonesas/3489019?share_id=whatsapp" target="_blank" rel="noopener" class="btn-primary" style="font-size:1rem; padding: 1rem 2.5rem;" data-i18n="btn-inscricao">INSCREVA-SE</a>
+    </div>
+
   </section>
 
 
@@ -1144,15 +1165,15 @@
   <section id="contato">
 
     <div class="section-header">
-      <h2 class="title-centered">Contato</h2>
+      <h2 class="title-centered" data-i18n="contato-title">Contato</h2>
     </div>
 
-    <p class="contact__text">
+    <p class="contact__text" data-i18n="contato-text">
       Para mais informações sobre a programação, participação ou demais dúvidas
       relacionadas ao evento, entre em contato com a organização.
     </p>
 
-    <a href="https://wa.me/554884091121" target="_blank" rel="noopener noreferrer" class="btn-primary">Entrar em contato</a>
+    <a href="https://wa.me/554884091121" target="_blank" rel="noopener noreferrer" class="btn-primary" data-i18n="btn-contato">Entrar em contato</a>
 
 
   </section>
@@ -1163,17 +1184,34 @@
   <!-- ================================================ -->
   <footer class="footer">
 
-    <p class="footer__realizacao">Realização</p>
+    <p class="footer__realizacao" data-i18n="footer-patrocinador">Patrocinador</p>
+    <div class="footer__logos">
+      <img src="midia/imagens/patrocinador.png" alt="Patrocinador" class="footer__logo-img footer__logo-img--patrocinador">
+    </div>
 
-    <!-- Área para logos dos organizadores e apoiadores -->
+    <div class="footer__divider"></div>
+
+    <p class="footer__realizacao" data-i18n="footer-apoiadores">Apoiadores</p>
+    <div class="footer__logos">
+      <img src="midia/imagens/apoiador 1.png" alt="Apoiador" class="footer__logo-img footer__logo-img--apoiador">
+      <img src="midia/imagens/apoiador 2.png" alt="Apoiador" class="footer__logo-img footer__logo-img--apoiador">
+<img src="midia/imagens/apoiador 3.png" alt="Apoiador" class="footer__logo-img footer__logo-img--apoiador">
+      <img src="midia/imagens/apoiador 4.png" alt="Apoiador" class="footer__logo-img footer__logo-img--apoiador">
+      <img src="midia/imagens/apoiador 5.png" alt="Apoiador" class="footer__logo-img footer__logo-img--apoiador">
+      <img src="midia/imagens/apoiador 6.png" alt="Apoiador" class="footer__logo-img footer__logo-img--apoiador">
+    </div>
+
+    <div class="footer__divider"></div>
+
+    <p class="footer__realizacao" data-i18n="footer-realizacao">Realização</p>
     <div class="footer__logos">
       <img src="midia/svgs/logopaulo.svg" alt="Realização" class="footer__logo-img">
     </div>
 
     <div class="footer__divider"></div>
 
-    <p class="footer__name">2º Simpósio de Terapias Tradicionais Japonesas</p>
-    <p class="footer__copy">&copy; 2026 Todos os direitos reservados.</p>
+    <p class="footer__name" data-i18n="footer-name">2º Simpósio de Terapias Tradicionais Japonesas</p>
+    <p class="footer__copy" data-i18n="footer-copy">&copy; 2026 Todos os direitos reservados.</p>
 
 
   </footer>
@@ -1201,6 +1239,203 @@
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape') closeMenu();
     });
+
+    // --- Internacionalização (PT / JP) ---
+    const translations = {
+      pt: {
+        'nav-sobre':            'Sobre',
+        'nav-participar':       'Por que Participar',
+        'nav-programacao':      'Programação',
+        'nav-cultura':          'Cultura',
+        'nav-publico':          'Público-Alvo',
+        'nav-info':             'Inscrições',
+        'nav-contato':          'Contato',
+        'overlay-sobre':        'Sobre o Evento',
+        'overlay-participar':   'Por que Participar',
+        'overlay-programacao':  'Programação',
+        'overlay-simposio':     'Simpósio de Terapias',
+        'overlay-cultura':      'Cultivar a Cultura',
+        'overlay-publico':      'Público-Alvo',
+        'overlay-info':         'Inscrições',
+        'overlay-contato':      'Contato',
+        'hero-edition':         '2ª Edição · 2026',
+        'hero-title':           'Simpósio de Terapias<br>Tradicionais Japonesas',
+        'hero-quote':           '"Sem raízes profundas, o trabalho perde sua essência."',
+        'hero-desc':            'Workshops, palestras e atividades culturais voltados ao aprimoramento profissional, à promoção da saúde e à valorização dos saberes tradicionais japoneses.',
+        'hero-date':            '📅 18 e 19 de setembro de 2026',
+        'hero-location':        '📍 Auditório do Centro de Ciências da Saúde (CSS) – UFSC · Florianópolis – SC',
+        'btn-inscricao':        'Inscreva-se',
+        'sobre-title':          'Sobre o Evento',
+        'sobre-p1':             'O 2º Simpósio de Terapias Tradicionais Japonesas é um encontro dedicado à integração entre ensino, desenvolvimento humano e os saberes da cultura japonesa aplicados ao cuidado em saúde.',
+        'sobre-p2':             'Após o sucesso de sua primeira edição, o evento retorna em 2026 com uma programação ampliada e será realizado na Universidade Federal de Santa Catarina (UFSC), reunindo profissionais, estudantes e interessados em terapias tradicionais japonesas, práticas integrativas e cultura oriental.',
+        'sobre-p3':             'O simpósio propõe um espaço de diálogo entre a filosofia japonesa e práticas terapêuticas que promovem equilíbrio, bem-estar e reconexão consigo mesmo, valorizando conhecimentos construídos ao longo de gerações.',
+        'participar-title':     'Por que<br>Participar?',
+        'participar-desc':      'O evento oferece uma oportunidade única para atualização profissional, troca de experiências e aprofundamento dos conhecimentos sobre terapias tradicionais japonesas.',
+        'participar-li1':       'Aprendizado de novas técnicas e abordagens terapêuticas',
+        'participar-li2':       'Contato com especialistas e profissionais da área',
+        'participar-li3':       'Ampliação da rede de relacionamentos profissionais',
+        'participar-li4':       'Reflexão sobre ética, autenticidade e identidade profissional',
+        'participar-li5':       'Conhecimento sobre as origens e fundamentos filosóficos das terapias',
+        'participar-li6':       'Aproximação entre profissionais brasileiros e japoneses',
+        'link-contato':         'Entrar em contato',
+        'prog-title':           'Simpósio de<br>Terapias Tradicionais',
+        'prog-label1':          'Atividades',
+        'prog-li1':             'Palestras com especialistas',
+        'prog-li2':             'Mesas de debate',
+        'prog-li3':             'Workshops práticos',
+        'prog-li4':             'Práticas corporais em grupo',
+        'prog-li5':             'Exposição de trabalhos científicos',
+        'prog-label2':          'Temas abordados',
+        'prog-tema1':           'Origens das terapias tradicionais japonesas',
+        'prog-tema2':           'Benefícios para a saúde e o bem-estar',
+        'prog-tema3':           'Capacitação técnica e formação profissional',
+        'prog-tema4':           'Práticas Integrativas e Complementares em Saúde (PICS)',
+        'prog-tema5':           'Inserção das terapias tradicionais no contexto da saúde pública',
+        'cultura-title':        'Cultivar<br>a Cultura',
+        'cultura-desc':         'Além das atividades acadêmicas e profissionais, o evento contará com um espaço dedicado à cultura japonesa, promovendo experiências culturais e artísticas.',
+        'cultura-li1':          'Exposição sobre a cultura japonesa',
+        'cultura-li2':          'Oficina de Mizuhiki',
+        'cultura-li3':          'Exposição e oficina de Bordado Sashiko',
+        'cultura-li4':          'Exposição e oficina de Shodō (escrita japonesa)',
+        'cultura-li5':          'Oficina de Origami',
+        'cultura-li6':          'Vivências culturais',
+        'link-programa':        'Ver programação completa',
+        'publico-title':        'Público-Alvo',
+        'publico-intro':        'O simpósio é aberto à comunidade e destinado especialmente a profissionais e estudantes da área da saúde interessados em terapias tradicionais e práticas integrativas.',
+        'publico-li1':          'Fisioterapeutas',
+        'publico-li2':          'Enfermeiros',
+        'publico-li3':          'Profissionais de Educação Física',
+        'publico-li4':          'Terapeutas corporais',
+        'publico-li5':          'Massoterapeutas',
+        'publico-li6':          'Estudantes da área da saúde',
+        'publico-li7':          'Interessados em Acupuntura e Moxaterapia',
+        'publico-li8':          'Praticantes de Seitai e Anmá',
+        'publico-li9':          'Profissionais de Shiatsu e PICs',
+        'publico-note':         'Não é necessário experiência prévia nas terapias tradicionais japonesas para participar.',
+        'instagram-title':      'Acompanhe no Instagram',
+        'instagram-text':       'Fique por dentro das novidades, programação e bastidores do evento.',
+        'btn-instagram':        'Seguir no Instagram',
+        'info-title':           'Inscrições',
+        'info-label-data':      'Data',
+        'info-value-data':      '18 e 19 de setembro<br>de 2026',
+        'info-label-local':     'Local',
+        'info-value-local':     'Auditório do CSS – Térreo<br>Universidade Federal de Santa Catarina<br>Florianópolis – SC',
+        'info-label-participacao': 'Participação',
+        'info-value-participacao': 'Gratuita',
+        'info-tag':             'Aberto ao público',
+        'contato-title':        'Contato',
+        'contato-text':         'Para mais informações sobre a programação, participação ou demais dúvidas relacionadas ao evento, entre em contato com a organização.',
+        'btn-contato':          'Entrar em contato',
+        'footer-patrocinador':  'Patrocinador',
+        'footer-apoiadores':    'Apoiadores',
+        'footer-realizacao':    'Realização',
+        'footer-name':          '2º Simpósio de Terapias Tradicionais Japonesas',
+        'footer-copy':          '© 2026 Todos os direitos reservados.',
+      },
+      ja: {
+        'nav-sobre':            'イベントについて',
+        'nav-participar':       '参加理由',
+        'nav-programacao':      'プログラム',
+        'nav-cultura':          '文化',
+        'nav-publico':          '対象者',
+        'nav-info':             '参加登録',
+        'nav-contato':          'お問い合わせ',
+        'overlay-sobre':        'イベントについて',
+        'overlay-participar':   '参加理由',
+        'overlay-programacao':  'プログラム',
+        'overlay-simposio':     '伝統療法シンポジウム',
+        'overlay-cultura':      '文化を育む',
+        'overlay-publico':      '対象者',
+        'overlay-info':         '参加登録',
+        'overlay-contato':      'お問い合わせ',
+        'hero-edition':         '第2回 · 2026年',
+        'hero-title':           '日本の伝統療法<br>シンポジウム',
+        'hero-quote':           '「根が深くなければ、仕事はその本質を失う。」',
+        'hero-desc':            '専門的なスキルアップ、健康増進、日本の伝統的な知識の継承を目的としたワークショップ、講演、文化活動。',
+        'hero-date':            '📅 2026年9月18日・19日',
+        'hero-location':        '📍 健康科学センター（CSS）講堂 – UFSC · フロリアノポリス – SC',
+        'btn-inscricao':        '参加申し込み',
+        'sobre-title':          'イベントについて',
+        'sobre-p1':             '第2回日本の伝統療法シンポジウムは、医療ケアに応用された日本文化の知識と、教育・人間発達の統合に捧げられた集いです。',
+        'sobre-p2':             '第1回の成功を受け、2026年のイベントはプログラムを拡大して再び開催されます。サンタカタリーナ連邦大学（UFSC）にて、日本の伝統療法、統合医療、東洋文化に関心のある専門家、学生、一般の方を対象に行われます。',
+        'sobre-p3':             'シンポジウムは、日本の哲学と治療実践の間の対話の場を提案します。バランス、健康、自己との再接続を促進し、世代を超えて受け継がれた知識を大切にします。',
+        'participar-title':     'なぜ<br>参加するのか？',
+        'participar-desc':      'このイベントは、専門的な知識の更新、経験の共有、日本の伝統療法への理解を深めるまたとない機会を提供します。',
+        'participar-li1':       '新しい技術と治療アプローチの習得',
+        'participar-li2':       '専門家や業界のプロフェッショナルとの交流',
+        'participar-li3':       '専門的なネットワークの拡大',
+        'participar-li4':       '倫理・真正性・職業的アイデンティティへの省察',
+        'participar-li5':       '伝統療法の起源と哲学的基盤の理解',
+        'participar-li6':       'ブラジルと日本の専門家の橋渡し',
+        'link-contato':         'お問い合わせ',
+        'prog-title':           '伝統療法<br>シンポジウム',
+        'prog-label1':          '活動内容',
+        'prog-li1':             '専門家による講演',
+        'prog-li2':             'ディスカッションテーブル',
+        'prog-li3':             '実践ワークショップ',
+        'prog-li4':             'グループボディワーク',
+        'prog-li5':             '科学的研究の発表',
+        'prog-label2':          'テーマ',
+        'prog-tema1':           '日本の伝統療法の起源',
+        'prog-tema2':           '健康とウェルビーイングへのメリット',
+        'prog-tema3':           '技術研修と専門家教育',
+        'prog-tema4':           '統合・補完医療（PICS）',
+        'prog-tema5':           '公衆衛生における伝統療法の役割',
+        'cultura-title':        '文化を<br>育む',
+        'cultura-desc':         '学術・専門活動に加え、日本文化の空間も設け、文化的・芸術的な体験を提供します。',
+        'cultura-li1':          '日本文化展示',
+        'cultura-li2':          '水引ワークショップ',
+        'cultura-li3':          '刺し子刺繍の展示とワークショップ',
+        'cultura-li4':          '書道の展示とワークショップ',
+        'cultura-li5':          '折り紙ワークショップ',
+        'cultura-li6':          '文化体験',
+        'link-programa':        'プログラム全体を見る',
+        'publico-title':        '対象者',
+        'publico-intro':        'シンポジウムは一般公開であり、特に伝統療法と統合医療に関心のある医療専門家や学生を対象としています。',
+        'publico-li1':          '理学療法士',
+        'publico-li2':          '看護師',
+        'publico-li3':          '体育の専門家',
+        'publico-li4':          'ボディセラピスト',
+        'publico-li5':          'マッサージセラピスト',
+        'publico-li6':          '医療系学生',
+        'publico-li7':          '鍼灸・灸療法に関心のある方',
+        'publico-li8':          '整体・按摩の実践者',
+        'publico-li9':          '指圧・統合医療の専門家',
+        'publico-note':         '日本の伝統療法の事前経験は不要です。',
+        'instagram-title':      'Instagramでフォロー',
+        'instagram-text':       'イベントの最新情報、プログラム、舞台裏をチェックしましょう。',
+        'btn-instagram':        'Instagramでフォローする',
+        'info-title':           '参加登録',
+        'info-label-data':      '日程',
+        'info-value-data':      '2026年9月18日・19日',
+        'info-label-local':     '会場',
+        'info-value-local':     '健康科学センター（CSS）– 1階<br>サンタカタリーナ連邦大学<br>フロリアノポリス – SC',
+        'info-label-participacao': '参加費',
+        'info-value-participacao': '無料',
+        'info-tag':             '一般公開',
+        'contato-title':        'お問い合わせ',
+        'contato-text':         'プログラム、参加方法、その他のご質問については、主催者までお問い合わせください。',
+        'btn-contato':          'お問い合わせ',
+        'footer-patrocinador':  'スポンサー',
+        'footer-apoiadores':    'サポーター',
+        'footer-realizacao':    '主催',
+        'footer-name':          '第2回日本の伝統療法シンポジウム',
+        'footer-copy':          '© 2026 全著作権所有。',
+      }
+    };
+
+    let currentLang = 'pt';
+
+    function toggleLang() {
+      currentLang = currentLang === 'pt' ? 'ja' : 'pt';
+      const t = translations[currentLang];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key] !== undefined) el.innerHTML = t[key];
+      });
+      document.getElementById('langToggle').textContent = currentLang === 'pt' ? '日本語' : 'Português';
+      document.documentElement.lang = currentLang === 'pt' ? 'pt-BR' : 'ja';
+    }
 
     // --- Smooth scroll ---
     document.querySelectorAll('a[href^="#"]').forEach(link => {
