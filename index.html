@@ -530,6 +530,78 @@
 
 
     /* ================================================
+       4D. REALIZADOR
+    ================================================ */
+
+    #realizador {
+      padding: var(--section-py) 0;
+      background: var(--color-bg);
+    }
+
+    .realizador__inner {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .realizador__photo {
+      width: 100%;
+      border-radius: 8px;
+      display: block;
+      box-shadow: 0 8px 32px rgba(5,57,126,0.12);
+    }
+
+    .realizador__label {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .realizador__name {
+      font-family: var(--font-serif);
+      font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+      font-weight: normal;
+      color: var(--color-primary);
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      position: relative;
+    }
+
+    .realizador__name::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: var(--color-accent);
+    }
+
+    .realizador__bio p {
+      color: var(--color-text);
+      margin-bottom: 1rem;
+      line-height: 1.85;
+    }
+    .realizador__bio p:last-child { margin-bottom: 0; }
+
+    @media (max-width: 768px) {
+      .realizador__inner {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .realizador__photo {
+        max-width: 280px;
+        margin: 0 auto;
+      }
+    }
+
+    /* ================================================
        5. PÚBLICO-ALVO
     ================================================ */
 
@@ -1064,6 +1136,34 @@
 
 
   <!-- ================================================ -->
+  <!-- 4D. REALIZADOR                                   -->
+  <!-- ================================================ -->
+  <section id="realizador">
+
+    <div class="realizador__inner">
+
+      <div>
+        <img src="midia/imagens/c2_47.jpg" alt="Paulo Pierin Luz" class="realizador__photo">
+      </div>
+
+      <div>
+        <p class="realizador__label" data-i18n="realizador-label">Conheça o Idealizador</p>
+        <h2 class="realizador__name" data-i18n="realizador-name">Paulo Pierin Luz</h2>
+        <div class="realizador__bio">
+          <p data-i18n="realizador-p1">Paulo Pierin Luz é Professor de Educação Física pela Universidade Federal de Santa Catarina (UFSC), terapeuta corporal, aromaterapeuta e pesquisador das Terapias Tradicionais Japonesas. Atua profissionalmente com Shiatsu desde 2003, dedicando sua trajetória ao estudo, à prática clínica e ao ensino das artes terapêuticas orientais.</p>
+          <p data-i18n="realizador-p2">Sua formação reúne Shiatsu, Seitai, Ashitsubo (Terapia Podal Japonesa), Acupuntura, Moxaterapia Japonesa Ontake, Aromaterapia, Qi Gong, meditação e práticas corporais orientais, integrando tradição, ciência do movimento e cuidado integral da saúde. Também atuou como instrutor de Kenjutsu e Iaijutsu pelo Instituto Cultural Niten, experiência que reforçou sua vivência da filosofia, da disciplina e da cultura japonesa.</p>
+          <p data-i18n="realizador-p3">Desde 2012, ministra cursos, palestras e formações para terapeutas e profissionais da saúde, buscando preservar a essência das terapias tradicionais japonesas por meio de um ensino fundamentado na prática, no respeito às tradições e na constante atualização profissional.</p>
+          <p data-i18n="realizador-p4">Idealizou o Simpósio de Terapias Tradicionais Japonesas com o propósito de criar um espaço dedicado ao encontro entre mestres, terapeutas, pesquisadores e estudantes, promovendo o intercâmbio de conhecimentos, o fortalecimento das tradições japonesas e o desenvolvimento ético e técnico da área no Brasil.</p>
+          <p data-i18n="realizador-p5">Acredita que preservar uma tradição significa mantê-la viva por meio do estudo, da prática, da pesquisa e da transmissão responsável do conhecimento às novas gerações.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================================================ -->
   <!-- 5. PÚBLICO-ALVO                                  -->
   <!-- ================================================ -->
   <section id="publico">
@@ -1292,6 +1392,13 @@
         'prog-tema3':           'Capacitação técnica e formação profissional',
         'prog-tema4':           'Práticas Integrativas e Complementares em Saúde (PICS)',
         'prog-tema5':           'Inserção das terapias tradicionais no contexto da saúde pública',
+        'realizador-label':     'Conheça o Idealizador',
+        'realizador-name':      'Paulo Pierin Luz',
+        'realizador-p1':        'Paulo Pierin Luz é Professor de Educação Física pela Universidade Federal de Santa Catarina (UFSC), terapeuta corporal, aromaterapeuta e pesquisador das Terapias Tradicionais Japonesas. Atua profissionalmente com Shiatsu desde 2003, dedicando sua trajetória ao estudo, à prática clínica e ao ensino das artes terapêuticas orientais.',
+        'realizador-p2':        'Sua formação reúne Shiatsu, Seitai, Ashitsubo (Terapia Podal Japonesa), Acupuntura, Moxaterapia Japonesa Ontake, Aromaterapia, Qi Gong, meditação e práticas corporais orientais, integrando tradição, ciência do movimento e cuidado integral da saúde. Também atuou como instrutor de Kenjutsu e Iaijutsu pelo Instituto Cultural Niten, experiência que reforçou sua vivência da filosofia, da disciplina e da cultura japonesa.',
+        'realizador-p3':        'Desde 2012, ministra cursos, palestras e formações para terapeutas e profissionais da saúde, buscando preservar a essência das terapias tradicionais japonesas por meio de um ensino fundamentado na prática, no respeito às tradições e na constante atualização profissional.',
+        'realizador-p4':        'Idealizou o Simpósio de Terapias Tradicionais Japonesas com o propósito de criar um espaço dedicado ao encontro entre mestres, terapeutas, pesquisadores e estudantes, promovendo o intercâmbio de conhecimentos, o fortalecimento das tradições japonesas e o desenvolvimento ético e técnico da área no Brasil.',
+        'realizador-p5':        'Acredita que preservar uma tradição significa mantê-la viva por meio do estudo, da prática, da pesquisa e da transmissão responsável do conhecimento às novas gerações.',
         'cultura-title':        'Cultivar<br>a Cultura',
         'cultura-desc':         'Além das atividades acadêmicas e profissionais, o evento contará com um espaço dedicado à cultura japonesa, promovendo experiências culturais e artísticas.',
         'cultura-li1':          'Exposição sobre a cultura japonesa',
@@ -1382,6 +1489,13 @@
         'prog-tema3':           '技術研修と専門家教育',
         'prog-tema4':           '統合・補完医療（PICS）',
         'prog-tema5':           '公衆衛生における伝統療法の役割',
+        'realizador-label':     '主催者について',
+        'realizador-name':      'Paulo Pierin Luz',
+        'realizador-p1':        'パウロ・ピエリン・ルスは、サンタカタリーナ連邦大学（UFSC）体育学部卒業。ボディセラピスト、アロマセラピスト、日本の伝統療法研究者。2003年よりシアツを専門とし、東洋のセラピー芸術の研究・臨床・指導に生涯を捧げる。',
+        'realizador-p2':        '指圧、整体、足つぼ（日本式足底療法）、鍼、御嶽日本式灸、アロマセラピー、気功、瞑想、東洋身体実践など幅広い資格を持ち、伝統、運動科学、統合的ヘルスケアを融合させている。また、ニテン文化研究所にて剣術・居合術の指導員も務め、日本の哲学・規律・文化への理解を深めた。',
+        'realizador-p3':        '2012年より、セラピスト・医療従事者向けのコース、講演、研修を実施。実践・伝統への敬意・継続的な専門的更新に基づいた教育を通じて、日本の伝統療法の本質を守ることを目指している。',
+        'realizador-p4':        '日本の伝統療法シンポジウムを創設し、師匠・セラピスト・研究者・学生が集う場を設けた。知識の交流、日本の伝統の強化、ブラジルにおける倫理的・技術的発展を促進することを目的としている。',
+        'realizador-p5':        '伝統を守ることとは、学習・実践・研究、そして次世代への責任ある知識の継承を通じてその伝統を生き続けさせることだと信じている。',
         'cultura-title':        '文化を<br>育む',
         'cultura-desc':         '学術・専門活動に加え、日本文化の空間も設け、文化的・芸術的な体験を提供します。',
         'cultura-li1':          '日本文化展示',
