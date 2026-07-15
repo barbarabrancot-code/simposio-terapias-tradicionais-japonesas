@@ -368,12 +368,61 @@
 
     .hero__meta {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       align-items: center;
-      gap: 0.35rem;
-      font-size: 0.88rem;
-      color: rgba(255, 255, 255, 0.88);
-      margin-bottom: 2.25rem;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 2.5rem;
+    }
+
+    .hero__meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 50px;
+      padding: 0.65rem 1.4rem;
+      color: #fff;
+      font-size: clamp(0.82rem, 1.5vw, 0.95rem);
+      line-height: 1.3;
+    }
+
+    .hero__meta-icon {
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 600px) {
+      .hero__meta { flex-direction: column; gap: 0.75rem; }
+      .hero__meta-item { width: 100%; max-width: 340px; border-radius: 12px; }
+    }
+
+    /* Seta de scroll animada */
+    .hero__scroll-btn {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 4;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      color: rgba(255, 255, 255, 0.75);
+      transition: color 0.2s;
+    }
+    .hero__scroll-btn:hover { color: #fff; }
+
+    @keyframes bounce-arrow {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-12px); }
+    }
+    .hero__scroll-btn svg {
+      animation: bounce-arrow 1.8s ease-in-out infinite;
+      display: block;
     }
 
     /* Nav âncora — fixada no fundo do hero */
@@ -1032,8 +1081,23 @@
       <p class="hero__edition" data-i18n="hero-edition">2ª Edição · 2026</p>
       <h1 class="hero__title" data-i18n="hero-title">Simpósio de Terapias<br>Tradicionais Japonesas</h1>
       <p class="hero__quote" data-i18n="hero-quote">"Sem raízes profundas, o trabalho perde sua essência."</p>
+      <div class="hero__meta">
+        <div class="hero__meta-item">
+          <span class="hero__meta-icon">📅</span>
+          <span data-i18n="hero-date">18 e 19 de setembro de 2026</span>
+        </div>
+        <div class="hero__meta-item">
+          <span class="hero__meta-icon">📍</span>
+          <span data-i18n="hero-location">Auditório do CSS – UFSC · Florianópolis – SC</span>
+        </div>
+      </div>
     </div>
 
+    <button class="hero__scroll-btn" aria-label="Scroll para baixo" onclick="document.getElementById('sobre').scrollIntoView({behavior:'smooth'})">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 12 15 18 9"/>
+      </svg>
+    </button>
 
   </section>
 
@@ -1181,7 +1245,7 @@
     <div class="realizador__inner">
 
       <div>
-        <img src="midia/imagens/c2_47.jpg" alt="Paulo Pierin Luz" class="realizador__photo">
+        <img src="midia/imagens/c2.jpg" alt="Paulo Pierin Luz" class="realizador__photo">
       </div>
 
       <div>
@@ -1411,7 +1475,7 @@
         'hero-quote':           '"Sem raízes profundas, o trabalho perde sua essência."',
         'hero-desc':            'Workshops, palestras e atividades culturais voltados ao aprimoramento profissional, à promoção da saúde e à valorização dos saberes tradicionais japoneses.',
         'hero-date':            '📅 18 e 19 de setembro de 2026',
-        'hero-location':        '📍 Auditório do Centro de Ciências da Saúde (CSS) – UFSC · Florianópolis – SC',
+        'hero-location':        'Auditório do CSS – UFSC · Florianópolis – SC',
         'btn-inscricao':        'Inscreva-se',
         'sobre-title':          'Sobre o Evento',
         'sobre-p1':             'O 2º Simpósio de Terapias Tradicionais Japonesas é um encontro dedicado à integração entre ensino, desenvolvimento humano e os saberes da cultura japonesa aplicados ao cuidado em saúde.',
@@ -1508,7 +1572,7 @@
         'hero-quote':           '「根が深くなければ、仕事はその本質を失う。」',
         'hero-desc':            '専門的なスキルアップ、健康増進、日本の伝統的な知識の継承を目的としたワークショップ、講演、文化活動。',
         'hero-date':            '📅 2026年9月18日・19日',
-        'hero-location':        '📍 健康科学センター（CSS）講堂 – UFSC · フロリアノポリス – SC',
+        'hero-location':        '健康科学センター（CSS）講堂 – UFSC · フロリアノポリス – SC',
         'btn-inscricao':        '参加申し込み',
         'sobre-title':          'イベントについて',
         'sobre-p1':             '第2回日本の伝統療法シンポジウムは、医療ケアに応用された日本文化の知識と、教育・人間発達の統合に捧げられた集いです。',
