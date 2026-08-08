@@ -157,24 +157,32 @@
       top: 0; left: 0;
       width: 100%;
       height: var(--header-h);
-      background: rgba(248, 246, 242, 0.97);
-      border-bottom: 1px solid var(--color-border);
+      background: transparent;
+      border-bottom: 1px solid transparent;
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 0 2rem;
       z-index: 1000;
       gap: 1rem;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .header.is-scrolled {
+      background: rgba(248, 246, 242, 0.97);
+      border-bottom-color: var(--color-border);
     }
 
     .header__logo {
       font-family: var(--font-serif);
       font-size: 0.88rem;
       font-weight: normal;
-      color: var(--color-primary);
+      color: var(--color-white);
       line-height: 1.35;
       flex-shrink: 0;
+      transition: color 0.3s ease;
     }
+    .header.is-scrolled .header__logo { color: var(--color-primary); }
 
     .header__nav {
       display: flex;
@@ -185,9 +193,10 @@
       font-size: 0.78rem;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: var(--color-text);
+      color: var(--color-white);
       transition: color 0.2s;
     }
+    .header.is-scrolled .header__nav a { color: var(--color-text); }
     .header__nav a:hover { color: var(--color-accent); }
 
     .header__right {
@@ -200,16 +209,17 @@
     .header__lang {
       font-size: 0.75rem;
       letter-spacing: 0.1em;
-      color: var(--color-muted);
+      color: rgba(255, 255, 255, 0.8);
       cursor: pointer;
       user-select: none;
       background: none;
       border: none;
       font-family: var(--font-sans);
       padding: 0;
-      transition: color 0.2s;
+      transition: color 0.3s ease;
     }
-    .header__lang:hover { color: var(--color-primary); }
+    .header.is-scrolled .header__lang { color: var(--color-muted); }
+    .header__lang:hover { color: var(--color-accent); }
 
     /* Hambúrguer */
     .hamburger {
@@ -228,9 +238,10 @@
       display: block;
       width: 100%;
       height: 1.5px;
-      background: var(--color-primary);
-      transition: transform 0.3s, opacity 0.3s;
+      background: var(--color-white);
+      transition: transform 0.3s, opacity 0.3s, background-color 0.3s ease;
     }
+    .header.is-scrolled .hamburger span { background: var(--color-primary); }
     .hamburger.is-active span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
     .hamburger.is-active span:nth-child(2) { opacity: 0; }
     .hamburger.is-active span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
@@ -317,11 +328,11 @@
       z-index: 1;
     }
 
-    /* Máscara escura */
+    /* Máscara escura: mais forte no centro (atrás do texto), mais leve nas bordas */
     .hero__overlay {
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0.5);
+      background: radial-gradient(ellipse at center, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.24) 45%, rgba(0,0,0,0.08) 100%);
       z-index: 2;
     }
 
@@ -337,8 +348,9 @@
       font-size: 0.72rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.65);
+      color: rgba(255, 255, 255, 0.75);
       margin-bottom: 1rem;
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.55);
     }
 
     .hero__title {
@@ -347,16 +359,23 @@
       font-weight: normal;
       color: #fff;
       line-height: 1.2;
-      letter-spacing: 0.01em;
+      letter-spacing: 0.05em;
       margin-bottom: 1.25rem;
+      text-shadow: 0 2px 16px rgba(0, 0, 0, 0.55), 0 1px 4px rgba(0, 0, 0, 0.7);
+      -webkit-text-stroke: 1pt #fff;
+    }
+
+    @media (min-width: 769px) {
+      .hero__title { white-space: nowrap; }
     }
 
     .hero__quote {
       font-family: var(--font-serif);
       font-size: clamp(1rem, 2.2vw, 1.3rem);
       font-style: italic;
-      color: rgba(255, 255, 255, 0.9);
+      color: rgba(255, 255, 255, 0.92);
       margin-bottom: 1.5rem;
+      text-shadow: 0 1px 10px rgba(0, 0, 0, 0.55);
     }
 
     .hero__desc {
@@ -364,6 +383,7 @@
       color: rgba(255, 255, 255, 0.82);
       line-height: 1.8;
       margin-bottom: 1.75rem;
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
     }
 
     .hero__meta {
@@ -994,19 +1014,15 @@
     <ul class="overlay__list">
 
       <li class="overlay__item">
-        <a href="#sobre" class="overlay__link" onclick="closeMenu()" data-i18n="overlay-sobre">Sobre o Evento</a>
-      </li>
-
-      <li class="overlay__item">
-        <a href="#participar" class="overlay__link" onclick="closeMenu()" data-i18n="overlay-participar">Por que Participar</a>
-      </li>
-
-      <li class="overlay__item">
         <a href="#programacao" class="overlay__link" onclick="closeMenu()" data-i18n="overlay-programacao">Programação</a>
         <div class="overlay__sub">
           <a href="#programacao" onclick="closeMenu()" data-i18n="overlay-simposio">Simpósio de Terapias</a>
           <a href="#cultura" onclick="closeMenu()" data-i18n="overlay-cultura">Cultivar a Cultura</a>
         </div>
+      </li>
+
+      <li class="overlay__item">
+        <a href="#sobre" class="overlay__link" onclick="closeMenu()" data-i18n="overlay-sobre">Sobre o Evento</a>
       </li>
 
       <li class="overlay__item">
@@ -1039,9 +1055,8 @@
     </a>
 
     <nav class="header__nav" aria-label="Principal">
-      <a href="#sobre" data-i18n="nav-sobre">Sobre</a>
-      <a href="#participar" data-i18n="nav-participar">Por que Participar</a>
       <a href="#programacao" data-i18n="nav-programacao">Programação</a>
+      <a href="#sobre" data-i18n="nav-sobre">Sobre</a>
       <a href="#cultura" data-i18n="nav-cultura">Cultura</a>
       <a href="#publico" data-i18n="nav-publico">Público-Alvo</a>
       <a href="#instagram">Instagram</a>
@@ -1064,15 +1079,8 @@
   <!-- ================================================ -->
   <section class="hero">
 
-    <!-- Carrossel de imagens -->
-    <img src="midia/imagens/hero/CUR07458.JPG"       alt="" class="hero__slide is-active" aria-hidden="true">
-    <img src="midia/imagens/hero/CUR07538.JPG"       alt="" class="hero__slide" aria-hidden="true">
-    <img src="midia/imagens/hero/CUR07692%20(1).JPG" alt="" class="hero__slide" aria-hidden="true">
-    <img src="midia/imagens/hero/CUR07763%20(1).JPG" alt="" class="hero__slide" aria-hidden="true">
-    <img src="midia/imagens/hero/CUR07980.JPG"       alt="" class="hero__slide" aria-hidden="true">
-    <img src="midia/imagens/hero/CUR08032.JPG"       alt="" class="hero__slide" aria-hidden="true">
-    <img src="midia/imagens/hero/CUR08058.JPG"       alt="" class="hero__slide" aria-hidden="true">
-    <img src="midia/imagens/hero/CUR08154.JPG"       alt="" class="hero__slide" aria-hidden="true">
+    <!-- Vídeo de fundo -->
+    <video src="videos/16137471_3840_2160_25fps.mp4" class="hero__slide is-active" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
 
     <!-- Máscara escura -->
     <div class="hero__overlay"></div>
@@ -1093,12 +1101,54 @@
       </div>
     </div>
 
-    <button class="hero__scroll-btn" aria-label="Scroll para baixo" onclick="document.getElementById('sobre').scrollIntoView({behavior:'smooth'})">
+    <button class="hero__scroll-btn" aria-label="Scroll para baixo" onclick="document.getElementById('programacao').scrollIntoView({behavior:'smooth'})">
       <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <polyline points="6 9 12 15 18 9"/>
       </svg>
     </button>
 
+  </section>
+
+
+  <!-- ================================================ -->
+  <!-- 3A. PROGRAMAÇÃO: SIMPÓSIO DE TERAPIAS            -->
+  <!-- ================================================ -->
+  <section id="programacao" class="content-section">
+    <div class="content-section__inner">
+
+      <div class="content-section__left">
+        <img src="midia/imagens/c2_14 (1).jpg" alt="Simpósio de Terapias Tradicionais" class="content-section__icon">
+      </div>
+
+      <div class="content-section__right">
+        <h2 class="content-section__title" data-i18n="prog-title">Simpósio de<br>Terapias Tradicionais</h2>
+
+        <div class="content-subgroup">
+          <p class="content-subgroup__label" data-i18n="prog-label1">Atividades</p>
+          <ul class="content-list">
+            <li data-i18n="prog-li1">Palestras com especialistas</li>
+            <li data-i18n="prog-li2">Mesas de debate</li>
+            <li data-i18n="prog-li3">Workshops práticos</li>
+            <li data-i18n="prog-li4">Práticas corporais em grupo</li>
+            <li data-i18n="prog-li5">Exposição de trabalhos científicos</li>
+          </ul>
+        </div>
+
+        <div class="content-subgroup">
+          <p class="content-subgroup__label" data-i18n="prog-label2">Temas abordados</p>
+          <ul class="content-list">
+            <li data-i18n="prog-tema1">Origens das terapias tradicionais japonesas</li>
+            <li data-i18n="prog-tema2">Benefícios para a saúde e o bem-estar</li>
+            <li data-i18n="prog-tema3">Capacitação técnica e formação profissional</li>
+            <li data-i18n="prog-tema4">Práticas Integrativas e Complementares em Saúde (PICS)</li>
+            <li data-i18n="prog-tema5">Inserção das terapias tradicionais no contexto da saúde pública</li>
+          </ul>
+        </div>
+
+        <a href="https://wa.me/554884091121" target="_blank" rel="noopener noreferrer" class="link-cta" data-i18n="link-contato">Entrar em contato</a>
+      </div>
+
+    </div>
   </section>
 
 
@@ -1157,48 +1207,6 @@
           <li data-i18n="participar-li5">Conhecimento sobre as origens e fundamentos filosóficos das terapias</li>
           <li data-i18n="participar-li6">Aproximação entre profissionais brasileiros e japoneses</li>
         </ul>
-        <a href="https://wa.me/554884091121" target="_blank" rel="noopener noreferrer" class="link-cta" data-i18n="link-contato">Entrar em contato</a>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- ================================================ -->
-  <!-- 4B. PROGRAMAÇÃO: SIMPÓSIO DE TERAPIAS            -->
-  <!-- ================================================ -->
-  <section id="programacao" class="content-section">
-    <div class="content-section__inner">
-
-      <div class="content-section__left">
-        <img src="midia/imagens/c2_14 (1).jpg" alt="Simpósio de Terapias Tradicionais" class="content-section__icon">
-      </div>
-
-      <div class="content-section__right">
-        <h2 class="content-section__title" data-i18n="prog-title">Simpósio de<br>Terapias Tradicionais</h2>
-
-        <div class="content-subgroup">
-          <p class="content-subgroup__label" data-i18n="prog-label1">Atividades</p>
-          <ul class="content-list">
-            <li data-i18n="prog-li1">Palestras com especialistas</li>
-            <li data-i18n="prog-li2">Mesas de debate</li>
-            <li data-i18n="prog-li3">Workshops práticos</li>
-            <li data-i18n="prog-li4">Práticas corporais em grupo</li>
-            <li data-i18n="prog-li5">Exposição de trabalhos científicos</li>
-          </ul>
-        </div>
-
-        <div class="content-subgroup">
-          <p class="content-subgroup__label" data-i18n="prog-label2">Temas abordados</p>
-          <ul class="content-list">
-            <li data-i18n="prog-tema1">Origens das terapias tradicionais japonesas</li>
-            <li data-i18n="prog-tema2">Benefícios para a saúde e o bem-estar</li>
-            <li data-i18n="prog-tema3">Capacitação técnica e formação profissional</li>
-            <li data-i18n="prog-tema4">Práticas Integrativas e Complementares em Saúde (PICS)</li>
-            <li data-i18n="prog-tema5">Inserção das terapias tradicionais no contexto da saúde pública</li>
-          </ul>
-        </div>
-
         <a href="https://wa.me/554884091121" target="_blank" rel="noopener noreferrer" class="link-cta" data-i18n="link-contato">Entrar em contato</a>
       </div>
 
@@ -1421,14 +1429,13 @@
 
 
   <script>
-    // --- Hero carousel ---
-    const heroSlides = document.querySelectorAll('.hero__slide');
-    let heroIndex = 0;
-    setInterval(() => {
-      heroSlides[heroIndex].classList.remove('is-active');
-      heroIndex = (heroIndex + 1) % heroSlides.length;
-      heroSlides[heroIndex].classList.add('is-active');
-    }, 4000);
+    // --- Header: fundo aparece ao rolar ---
+    const headerEl = document.querySelector('.header');
+    function updateHeaderScroll() {
+      headerEl.classList.toggle('is-scrolled', window.scrollY > 40);
+    }
+    window.addEventListener('scroll', updateHeaderScroll, { passive: true });
+    updateHeaderScroll();
 
     // --- Menu overlay ---
     const menuBtn     = document.getElementById('menuBtn');
@@ -1456,14 +1463,12 @@
     const translations = {
       pt: {
         'nav-sobre':            'Sobre',
-        'nav-participar':       'Por que Participar',
         'nav-programacao':      'Programação',
         'nav-cultura':          'Cultura',
         'nav-publico':          'Público-Alvo',
         'nav-info':             'Inscrições',
         'nav-contato':          'Contato',
         'overlay-sobre':        'Sobre o Evento',
-        'overlay-participar':   'Por que Participar',
         'overlay-programacao':  'Programação',
         'overlay-simposio':     'Simpósio de Terapias',
         'overlay-cultura':      'Cultivar a Cultura',
@@ -1553,14 +1558,12 @@
       },
       ja: {
         'nav-sobre':            'イベントについて',
-        'nav-participar':       '参加理由',
         'nav-programacao':      'プログラム',
         'nav-cultura':          '文化',
         'nav-publico':          '対象者',
         'nav-info':             '参加登録',
         'nav-contato':          'お問い合わせ',
         'overlay-sobre':        'イベントについて',
-        'overlay-participar':   '参加理由',
         'overlay-programacao':  'プログラム',
         'overlay-simposio':     '伝統療法シンポジウム',
         'overlay-cultura':      '文化を育む',
