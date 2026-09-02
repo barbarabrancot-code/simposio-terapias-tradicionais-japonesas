@@ -964,6 +964,252 @@
     }
     .footer__links a:hover { color: rgba(255, 255, 255, 0.88); }
 
+    /* ================================================
+       3B. PROGRAMAÇÃO OFICIAL (GRADE)
+    ================================================ */
+
+    #grade {
+      padding: var(--section-py) 2rem;
+      background: var(--color-bg-alt);
+      border-top: 1px solid var(--color-border);
+    }
+
+    .grade__inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .grade__subtitle {
+      text-align: center;
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      margin-top: -2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    /* --- Abas de dia --- */
+    .grade__tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .grade__tab {
+      font-family: var(--font-serif);
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      color: var(--color-primary);
+      background: transparent;
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 0.7rem 1.6rem;
+      cursor: pointer;
+      line-height: 1.4;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .grade__tab-date {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      transition: color 0.2s;
+    }
+    .grade__tab:hover { border-color: var(--color-primary); }
+    .grade__tab--active {
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+      color: var(--color-white);
+    }
+    .grade__tab--active .grade__tab-date { color: rgba(255, 255, 255, 0.7); }
+
+    /* --- Painel de dia --- */
+    .grade__day[hidden] { display: none; }
+
+    /* --- Período (Abertura / Manhã / Tarde) --- */
+    .grade__period {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 2.5rem 0 1.5rem;
+    }
+    .grade__period:first-child { margin-top: 0; }
+    .grade__period-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--color-primary);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .grade__period::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--color-border);
+    }
+
+    /* --- Itens --- */
+    .grade__list { display: flex; flex-direction: column; }
+
+    .grade__item {
+      display: grid;
+      grid-template-columns: 88px 1fr;
+      gap: 1.5rem;
+      padding: 1.4rem 1.5rem;
+      border-top: 1px solid var(--color-border);
+      background: var(--color-white);
+    }
+    .grade__item:last-child { border-bottom: 1px solid var(--color-border); }
+
+    .grade__time {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      color: var(--color-primary);
+      line-height: 1.4;
+      padding-top: 0.1rem;
+    }
+
+    .grade__speaker {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+
+    .grade__talk {
+      font-family: var(--font-serif);
+      font-size: 1.02rem;
+      font-weight: normal;
+      color: var(--color-text);
+      line-height: 1.45;
+      margin-bottom: 0.4rem;
+    }
+
+    .grade__note {
+      font-size: 0.88rem;
+      color: var(--color-muted);
+      line-height: 1.65;
+      margin-bottom: 0.5rem;
+    }
+
+    .grade__meta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      font-size: 0.76rem;
+      color: var(--color-muted);
+    }
+
+    .grade__place {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.04em;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      background: rgba(5, 57, 126, 0.07);
+      color: var(--color-primary);
+    }
+    .grade__place--cultural {
+      background: rgba(73, 149, 126, 0.13);
+      color: #2f6a57;
+    }
+
+    .grade__dur { color: var(--color-muted); }
+
+    /* Variantes de item */
+    .grade__item--oficina {
+      border-left: 3px solid var(--color-secondary);
+      background: rgba(73, 149, 126, 0.045);
+    }
+    .grade__item--marco {
+      border-left: 3px solid var(--color-accent);
+    }
+    .grade__item--marco .grade__talk {
+      font-size: 1.15rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--color-primary);
+    }
+
+    /* --- Encerramento cultural (destaque) --- */
+    .grade__finale {
+      margin-top: 2.5rem;
+      background: var(--color-gradient);
+      color: var(--color-white);
+      border-radius: 10px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+    .grade__finale-time {
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 0.75rem;
+    }
+    .grade__finale-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.4rem, 3vw, 1.9rem);
+      font-weight: normal;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.5rem;
+    }
+    .grade__finale-artist {
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.78);
+      margin-bottom: 1.5rem;
+    }
+    .grade__finale-lead {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      letter-spacing: 0.04em;
+      margin-bottom: 1rem;
+    }
+    .grade__finale-text {
+      font-size: 0.92rem;
+      line-height: 1.85;
+      color: rgba(255, 255, 255, 0.86);
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    /* --- Legenda de locais --- */
+    .grade__locais {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--color-border);
+    }
+    .grade__local-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-primary);
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+    }
+    .grade__local-text {
+      font-size: 0.88rem;
+      color: var(--color-muted);
+      line-height: 1.65;
+    }
+
+
 
     /* ================================================
        RESPONSIVO
@@ -996,6 +1242,14 @@
         text-align: center;
       }
 
+
+      .grade__item {
+        grid-template-columns: 1fr;
+        gap: 0.4rem;
+        padding: 1.2rem 1.1rem;
+      }
+      .grade__locais { grid-template-columns: 1fr; }
+      .grade__tab { padding: 0.6rem 1.1rem; font-size: 0.82rem; }
       .contact__methods { flex-direction: column; gap: 1rem; }
     }
 
@@ -1017,6 +1271,7 @@
         <a href="#programacao" class="overlay__link" onclick="closeMenu()" data-i18n="overlay-programacao">Programação</a>
         <div class="overlay__sub">
           <a href="#programacao" onclick="closeMenu()" data-i18n="overlay-simposio">Simpósio de Terapias</a>
+          <a href="#grade" onclick="closeMenu()" data-i18n="overlay-grade">Programação Oficial</a>
           <a href="#cultura" onclick="closeMenu()" data-i18n="overlay-cultura">Cultivar a Cultura</a>
         </div>
       </li>
@@ -1056,6 +1311,7 @@
 
     <nav class="header__nav" aria-label="Principal">
       <a href="#programacao" data-i18n="nav-programacao">Programação</a>
+      <a href="#grade" data-i18n="nav-grade">Grade</a>
       <a href="#sobre" data-i18n="nav-sobre">Sobre</a>
       <a href="#cultura" data-i18n="nav-cultura">Cultura</a>
       <a href="#publico" data-i18n="nav-publico">Público-Alvo</a>
@@ -1096,7 +1352,7 @@
         </div>
         <div class="hero__meta-item">
           <span class="hero__meta-icon">📍</span>
-          <span data-i18n="hero-location">Auditório do CSS – UFSC · Florianópolis – SC</span>
+          <span data-i18n="hero-location">Auditório do CCS – UFSC · Florianópolis – SC</span>
         </div>
       </div>
     </div>
@@ -1150,6 +1406,354 @@
 
     </div>
   </section>
+
+
+  <!-- ================================================ -->
+  <!-- 3B. PROGRAMAÇÃO OFICIAL                          -->
+  <!-- ================================================ -->
+  <section id="grade">
+
+    <div class="section-header">
+      <h2 class="title-centered" data-i18n="grade-title">Programação Oficial</h2>
+    </div>
+    <p class="grade__subtitle" data-i18n="grade-subtitle">18 e 19 de setembro de 2026 · UFSC — Centro de Ciências da Saúde</p>
+
+    <div class="grade__inner">
+
+      <div class="grade__tabs" role="tablist">
+        <button class="grade__tab grade__tab--active" role="tab" aria-selected="true" aria-controls="dia-sexta" data-day="dia-sexta">
+          <span data-i18n="grade-tab1-day">Sexta-feira</span>
+          <span class="grade__tab-date" data-i18n="grade-tab1-date">18 de setembro</span>
+        </button>
+        <button class="grade__tab" role="tab" aria-selected="false" aria-controls="dia-sabado" data-day="dia-sabado">
+          <span data-i18n="grade-tab2-day">Sábado</span>
+          <span class="grade__tab-date" data-i18n="grade-tab2-date">19 de setembro</span>
+        </button>
+      </div>
+
+      <!-- ---------- SEXTA-FEIRA ---------- -->
+      <div class="grade__day" id="dia-sexta" role="tabpanel">
+
+        <div class="grade__period"><span class="grade__period-label" data-i18n="grade-per-abertura">Abertura</span></div>
+
+        <div class="grade__list">
+
+          <div class="grade__item grade__item--marco">
+            <div class="grade__time">13h</div>
+            <div class="grade__body">
+              <p class="grade__speaker">Paulo Pierin e Hisae Kaneoya</p>
+              <h3 class="grade__talk">Abertura Oficial</h3>
+              <p class="grade__note" data-i18n="grade-s1-note">Recepção</p>
+              <p class="grade__meta"><span class="grade__place">📍 Auditório CCS</span></p>
+            </div>
+          </div>
+
+          <div class="grade__item">
+            <div class="grade__time">14h</div>
+            <div class="grade__body">
+              <p class="grade__speaker">Francisca Mami Kaneoya</p>
+              <h3 class="grade__talk">A Filosofia do Mottainai: O que é Mottainai?</h3>
+              <p class="grade__meta"><span class="grade__place">📍 Auditório CCS</span> <span class="grade__dur">· 40 min</span></p>
+            </div>
+          </div>
+
+          <div class="grade__item">
+            <div class="grade__time">14h45</div>
+            <div class="grade__body">
+              <p class="grade__speaker">Daniela Lemos Polla</p>
+              <h3 class="grade__talk">Do conceito à prática: como transformar a escola em um espaço de pertencimento, protagonismo e sustentabilidade?</h3>
+              <p class="grade__meta"><span class="grade__place">📍 Auditório CCS</span> <span class="grade__dur">· 40 min</span></p>
+            </div>
+          </div>
+
+          <div class="grade__item">
+            <div class="grade__time">16h</div>
+            <div class="grade__body">
+              <p class="grade__speaker">Odilon Luís Faccio</p>
+              <h3 class="grade__talk">O cultivo do Bonsai faz bem para o corpo e para a alma</h3>
+              <p class="grade__meta"><span class="grade__place">📍 Auditório CCS</span> <span class="grade__dur">· 40 min</span></p>
+            </div>
+          </div>
+
+          <div class="grade__item grade__item--oficina">
+            <div class="grade__time">16h</div>
+            <div class="grade__body">
+              <h3 class="grade__talk">Oficina de Sashiko — Bordado Japonês</h3>
+              <p class="grade__meta"><span class="grade__place grade__place--cultural">🪭 Salas Térreo — Espaço Cultural</span></p>
+            </div>
+          </div>
+
+          <div class="grade__item grade__item--oficina">
+            <div class="grade__time">17h</div>
+            <div class="grade__body">
+              <h3 class="grade__talk">Oficinas Mottainai</h3>
+              <p class="grade__meta"><span class="grade__place grade__place--cultural">🪭 Salas Térreo — Espaço Cultural</span></p>
+            </div>
+          </div>
+
+          <div class="grade__item">
+            <div class="grade__time">17h</div>
+            <div class="grade__body">
+              <p class="grade__speaker">Professor Luigi Irlandini</p>
+              <h3 class="grade__talk">O Shakuhachi e o Zen</h3>
+              <p class="grade__meta"><span class="grade__place">📍 Auditório CCS</span> <span class="grade__dur">· 40 min</span></p>
+            </div>
+          </div>
+
+          <div class="grade__item grade__item--oficina">
+            <div class="grade__time">17h30</div>
+            <div class="grade__body">
+              <h3 class="grade__talk">Oficina de Furoshiki</h3>
+              <p class="grade__meta"><span class="grade__place grade__place--cultural">🪭 Salas Térreo — Espaço Cultural</span></p>
+            </div>
+          </div>
+
+          <div class="grade__item grade__item--marco">
+            <div class="grade__time">18h</div>
+            <div class="grade__body">
+              <p class="grade__speaker">Mesa presidida por Prof. e Naturólogo Alan Kornin</p>
+              <h3 class="grade__talk">Mesa de Debates e Roda de Conversa</h3>
+              <p class="grade__note" data-i18n="grade-s9-note">
+                Tema: as medicinas tradicionais orientais no Brasil — contexto histórico e
+                implementação no Sistema Único de Saúde. Com a participação de professores convidados.
+              </p>
+              <p class="grade__meta"><span class="grade__place">📍 Auditório CCS</span></p>
+            </div>
+          </div>
+
+          <div class="grade__item grade__item--marco">
+            <div class="grade__time">20h</div>
+            <div class="grade__body">
+              <h3 class="grade__talk" data-i18n="grade-s10-title">Encerramento do dia</h3>
+              <p class="grade__note" data-i18n="grade-s10-note">Agradecimento aos participantes e colaboradores da 1ª edição do Simpósio.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ---------- SÁBADO ---------- -->
+      <div class="grade__day" id="dia-sabado" role="tabpanel" hidden>
+
+        <div class="grade__period"><span class="grade__period-label" data-i18n="grade-per-manha">Manhã</span></div>
+
+        <div class="grade__list">
+
+          <div class="grade__item">
+            <div class="grade__time">8h30</div>
+            <div class="grade__body">
+              <p class="grade__speaker">Paulo Pierin</p>
+              <h3 class="grade__talk">O Tocar como Linguagem e Tradução</h3>
+              <p class="grade__meta"><span class="grade__place">📍 Auditório CCS</span> <span class="grade__dur">· 40 min</span></p>
+            </div>
+          </div>
+
+          <div class="grade__item">
+            <div class="grade__time">9h15</div>
+            <div class="grade__body">
+              <p class="grade__speaker">Alice Rumi Fukunaga</p>
+              <h3 class="grade__talk">Além do Shiatsu: a riqueza das Terapias Tradicionais Japonesas</h3>
+              <p class="grade__note" data-i18n="grade-d2-note">
+                Diferenças entre Anma, Shiatsu, Seitai, Sotai Hō e Seikotsu. Quando indicar cada abordagem?
+              </p>
+              <p class="grade__meta"><span class="grade__place">📍 Auditório CCS</span> <span class="grade__dur">· Vídeo-aula (15 min)</span></p>
+            </div>
+          </div>
+
+          <div class="grade__item">
+            <div class="grade__time">9h30</div>
+            <div class="grade__body">
+              <p class="grade__speaker">Valério Lima</p>
+              <h3 class="grade__talk">Mubun Dashin: Diagnóstico e Tratamento da Acupuntura Japonesa pelo Hara</h3>
+              <p class="grade__meta"><span class="grade__place">📍 Auditório CCS</span> <span class="grade__dur">· 40 min</span></p>
+            </div>
+          </div>
+
+          <div class="grade__item grade__item--oficina">
+            <div class="grade__time">10h</div>
+            <div class="grade__body">
+              <h3 class="grade__talk">Oficina de Furoshiki</h3>
+              <p class="grade__meta"><span class="grade__place grade__place--cultural">🪭 Salas Térreo — Espaço Cultural</span></p>
+            </div>
+          </div>
+
+          <div class="grade__item">
+            <div class="grade__time">10h30</div>
+            <div class="grade__body">
+              <p class="grade__speaker">Marcelo Mitsuo Nagaishi</p>
+              <h3 class="grade__talk">Terapia Podal Japonesa e o Poder do Toque na Infância</h3>
+              <p class="grade__meta"><span class="grade__place">📍 Auditório CCS</span> <span class="grade__dur">· Vídeo-aula (15 min)</span></p>
+            </div>
+          </div>
+
+          <div class="grade__item">
+            <div class="grade__time">10h45</div>
+            <div class="grade__body">
+              <p class="grade__speaker">Eric Fagundes</p>
+              <h3 class="grade__talk">Ontake: Moxa Japonesa em Movimento</h3>
+              <p class="grade__meta"><span class="grade__place">📍 Auditório CCS</span> <span class="grade__dur">· 40 min</span></p>
+            </div>
+          </div>
+
+          <div class="grade__item grade__item--oficina">
+            <div class="grade__time">11h30</div>
+            <div class="grade__body">
+              <h3 class="grade__talk">Oficina de Shuji</h3>
+              <p class="grade__meta"><span class="grade__place grade__place--cultural">🪭 Salas Térreo — Espaço Cultural</span></p>
+            </div>
+          </div>
+
+          <div class="grade__item">
+            <div class="grade__time">11h45</div>
+            <div class="grade__body">
+              <p class="grade__speaker">René Cardoso</p>
+              <h3 class="grade__talk">Seitai Katsugen Undo — Movimento Espontâneo para Pessoas com Doenças Autoimunes</h3>
+              <p class="grade__meta"><span class="grade__place">📍 Auditório CCS</span> <span class="grade__dur">· Vídeo-aula (15 min)</span></p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="grade__period"><span class="grade__period-label" data-i18n="grade-per-tarde">Tarde</span></div>
+
+        <div class="grade__list">
+
+          <div class="grade__item">
+            <div class="grade__time">12h45</div>
+            <div class="grade__body">
+              <p class="grade__speaker">René Cardoso</p>
+              <h3 class="grade__talk">Corpo, Movimento e Autocuidado: Redescobrindo a Consciência do Corpo</h3>
+              <p class="grade__meta"><span class="grade__place">📍 Auditório CCS</span> <span class="grade__dur">· Vídeo-aula (15 min)</span></p>
+            </div>
+          </div>
+
+          <div class="grade__item grade__item--oficina">
+            <div class="grade__time">13h</div>
+            <div class="grade__body">
+              <h3 class="grade__talk">Oficina de Sashiko — Bordado Japonês</h3>
+              <p class="grade__meta"><span class="grade__place grade__place--cultural">🪭 Salas Térreo — Espaço Cultural</span></p>
+            </div>
+          </div>
+
+          <div class="grade__item">
+            <div class="grade__time">13h</div>
+            <div class="grade__body">
+              <p class="grade__speaker">Alicio M. Inafuku</p>
+              <h3 class="grade__talk">Reiki: A Importância da Prática do Reiki no Atingimento do Anshin Ritsumei</h3>
+              <p class="grade__meta"><span class="grade__place">📍 Auditório CCS</span> <span class="grade__dur">· 40 min</span></p>
+            </div>
+          </div>
+
+          <div class="grade__item">
+            <div class="grade__time">14h</div>
+            <div class="grade__body">
+              <p class="grade__speaker">Eric Fagundes</p>
+              <h3 class="grade__talk">O que Torna a Acupuntura e a Moxabustão Japonesas Únicas?</h3>
+              <p class="grade__meta"><span class="grade__place">📍 Auditório CCS</span> <span class="grade__dur">· 40 min</span></p>
+            </div>
+          </div>
+
+          <div class="grade__item grade__item--oficina">
+            <div class="grade__time">14h</div>
+            <div class="grade__body">
+              <h3 class="grade__talk">Oficina de Bonsai</h3>
+              <p class="grade__meta"><span class="grade__place grade__place--cultural">🪭 Salas Térreo — Espaço Cultural</span></p>
+            </div>
+          </div>
+
+          <div class="grade__item">
+            <div class="grade__time">14h45</div>
+            <div class="grade__body">
+              <p class="grade__speaker">Morgana</p>
+              <h3 class="grade__talk">Dinâmica de Origami e a Regulação Emocional</h3>
+              <p class="grade__meta"><span class="grade__place">📍 Auditório CCS</span> <span class="grade__dur">· 40 min</span></p>
+            </div>
+          </div>
+
+          <div class="grade__item grade__item--oficina">
+            <div class="grade__time">15h30</div>
+            <div class="grade__body">
+              <h3 class="grade__talk">Oficina de Origami</h3>
+              <p class="grade__meta"><span class="grade__place grade__place--cultural">🪭 Salas Térreo — Espaço Cultural</span> <span class="grade__dur">· 15 min</span></p>
+            </div>
+          </div>
+
+          <div class="grade__item">
+            <div class="grade__time">15h45</div>
+            <div class="grade__body">
+              <p class="grade__speaker">Murilo de Melo</p>
+              <h3 class="grade__talk">Integrando a Liberação Miofascial ao Shiatsu</h3>
+              <p class="grade__meta"><span class="grade__place">📍 Auditório CCS</span> <span class="grade__dur">· 40 min</span></p>
+            </div>
+          </div>
+
+          <div class="grade__item">
+            <div class="grade__time">16h30</div>
+            <div class="grade__body">
+              <p class="grade__speaker">Valério Lima</p>
+              <h3 class="grade__talk">Shonihari: Acupuntura Pediátrica Japonesa</h3>
+              <p class="grade__meta"><span class="grade__place">📍 Auditório CCS</span> <span class="grade__dur">· 40 min</span></p>
+            </div>
+          </div>
+
+          <div class="grade__item grade__item--oficina">
+            <div class="grade__time">17h</div>
+            <div class="grade__body">
+              <h3 class="grade__talk">Oficina de Shuji</h3>
+              <p class="grade__meta"><span class="grade__place grade__place--cultural">🪭 Salas Térreo — Espaço Cultural</span></p>
+            </div>
+          </div>
+
+          <div class="grade__item">
+            <div class="grade__time">17h30</div>
+            <div class="grade__body">
+              <p class="grade__speaker">Wilson Sagae</p>
+              <h3 class="grade__talk">KIKO — Cultivo de Energia</h3>
+              <p class="grade__meta"><span class="grade__place">📍 Auditório CCS</span> <span class="grade__dur">· Vídeo-aula (15 min)</span></p>
+            </div>
+          </div>
+
+          <div class="grade__item">
+            <div class="grade__time">18h</div>
+            <div class="grade__body">
+              <p class="grade__speaker">Fabiana Higa</p>
+              <h3 class="grade__talk">Ikigai como Caminho: O que Existe Além do Propósito?</h3>
+              <p class="grade__meta"><span class="grade__place">📍 Auditório CCS</span> <span class="grade__dur">· 40 min</span></p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="grade__finale">
+          <p class="grade__finale-time">19h30 · <span data-i18n="grade-finale-tag">Encerramento Cultural</span></p>
+          <h3 class="grade__finale-title">Escuta e Presença</h3>
+          <p class="grade__finale-artist"><span data-i18n="grade-finale-guest">Artista convidado</span>: Luigi Antonio Irlandini</p>
+          <p class="grade__finale-lead" data-i18n="grade-finale-lead">Música, Meditação e Ritual — um concerto de Shakuhachi</p>
+          <p class="grade__finale-text" data-i18n="grade-finale-text">
+            Um concerto que percorre diferentes dimensões da experiência musical, reunindo uma peça
+            tradicional do repertório do Shakuhachi e uma obra contemporânea de autoria do próprio
+            Luigi Antonio Irlandini, especialmente apresentada neste encontro entre tradição,
+            criação e escuta.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- ---------- LOCAIS ---------- -->
+      <div class="grade__locais">
+        <div>
+          <p class="grade__local-label">📍 Auditório CCS</p>
+          <p class="grade__local-text" data-i18n="grade-local1">Centro de Ciências da Saúde — UFSC</p>
+        </div>
+        <div>
+          <p class="grade__local-label">🪭 Salas Térreo — Espaço Cultural</p>
+          <p class="grade__local-text" data-i18n="grade-local2">Oficinas e atividades práticas</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
 
 
   <!-- ================================================ -->
@@ -1348,7 +1952,7 @@
       <div>
         <p class="info__label" data-i18n="info-label-local">Local</p>
         <p class="info__value" data-i18n="info-value-local">
-          Auditório do CSS – Térreo<br>
+          Auditório do CCS – Térreo<br>
           Universidade Federal de Santa Catarina<br>
           Florianópolis – SC
         </p>
@@ -1480,7 +2084,7 @@
         'hero-quote':           '"Sem raízes profundas, o trabalho perde sua essência."',
         'hero-desc':            'Workshops, palestras e atividades culturais voltados ao aprimoramento profissional, à promoção da saúde e à valorização dos saberes tradicionais japoneses.',
         'hero-date':            '📅 18 e 19 de setembro de 2026',
-        'hero-location':        'Auditório do CSS – UFSC · Florianópolis – SC',
+        'hero-location':        'Auditório do CCS – UFSC · Florianópolis – SC',
         'btn-inscricao':        'Inscreva-se',
         'sobre-title':          'Sobre o Evento',
         'sobre-p1':             'O 2º Simpósio de Terapias Tradicionais Japonesas é um encontro dedicado à integração entre ensino, desenvolvimento humano e os saberes da cultura japonesa aplicados ao cuidado em saúde.',
@@ -1508,6 +2112,28 @@
         'prog-tema3':           'Capacitação técnica e formação profissional',
         'prog-tema4':           'Práticas Integrativas e Complementares em Saúde (PICS)',
         'prog-tema5':           'Inserção das terapias tradicionais no contexto da saúde pública',
+        'nav-grade':            'Grade',
+        'overlay-grade':        'Programação Oficial',
+        'grade-title':          'Programação Oficial',
+        'grade-subtitle':       '18 e 19 de setembro de 2026 · UFSC — Centro de Ciências da Saúde',
+        'grade-tab1-day':       'Sexta-feira',
+        'grade-tab1-date':      '18 de setembro',
+        'grade-tab2-day':       'Sábado',
+        'grade-tab2-date':      '19 de setembro',
+        'grade-per-abertura':   'Abertura',
+        'grade-per-manha':      'Manhã',
+        'grade-per-tarde':      'Tarde',
+        'grade-s1-note':        'Recepção',
+        'grade-s9-note':        'Tema: as medicinas tradicionais orientais no Brasil — contexto histórico e implementação no Sistema Único de Saúde. Com a participação de professores convidados.',
+        'grade-s10-title':      'Encerramento do dia',
+        'grade-s10-note':       'Agradecimento aos participantes e colaboradores da 1ª edição do Simpósio.',
+        'grade-d2-note':        'Diferenças entre Anma, Shiatsu, Seitai, Sotai Hō e Seikotsu. Quando indicar cada abordagem?',
+        'grade-finale-tag':     'Encerramento Cultural',
+        'grade-finale-guest':   'Artista convidado',
+        'grade-finale-lead':    'Música, Meditação e Ritual — um concerto de Shakuhachi',
+        'grade-finale-text':    'Um concerto que percorre diferentes dimensões da experiência musical, reunindo uma peça tradicional do repertório do Shakuhachi e uma obra contemporânea de autoria do próprio Luigi Antonio Irlandini, especialmente apresentada neste encontro entre tradição, criação e escuta.',
+        'grade-local1':         'Centro de Ciências da Saúde — UFSC',
+        'grade-local2':         'Oficinas e atividades práticas',
         'realizador-label':     'Conheça o Idealizador',
         'realizador-name':      'Paulo Pierin Luz',
         'realizador-p1':        'Paulo Pierin Luz é Professor de Educação Física pela Universidade Federal de Santa Catarina (UFSC), terapeuta corporal, aromaterapeuta e pesquisador das Terapias Tradicionais Japonesas. Atua profissionalmente com Shiatsu desde 2003, dedicando sua trajetória ao estudo, à prática clínica e ao ensino das artes terapêuticas orientais.',
@@ -1543,7 +2169,7 @@
         'info-label-data':      'Data',
         'info-value-data':      '18 e 19 de setembro<br>de 2026',
         'info-label-local':     'Local',
-        'info-value-local':     'Auditório do CSS – Térreo<br>Universidade Federal de Santa Catarina<br>Florianópolis – SC',
+        'info-value-local':     'Auditório do CCS – Térreo<br>Universidade Federal de Santa Catarina<br>Florianópolis – SC',
         'info-label-participacao': 'Participação',
         'info-value-participacao': 'Gratuita',
         'info-tag':             'Aberto ao público',
@@ -1575,7 +2201,7 @@
         'hero-quote':           '「根が深くなければ、仕事はその本質を失う。」',
         'hero-desc':            '専門的なスキルアップ、健康増進、日本の伝統的な知識の継承を目的としたワークショップ、講演、文化活動。',
         'hero-date':            '📅 2026年9月18日・19日',
-        'hero-location':        '健康科学センター（CSS）講堂 – UFSC · フロリアノポリス – SC',
+        'hero-location':        '健康科学センター（CCS）講堂 – UFSC · フロリアノポリス – SC',
         'btn-inscricao':        '参加申し込み',
         'sobre-title':          'イベントについて',
         'sobre-p1':             '第2回日本の伝統療法シンポジウムは、医療ケアに応用された日本文化の知識と、教育・人間発達の統合に捧げられた集いです。',
@@ -1603,6 +2229,28 @@
         'prog-tema3':           '技術研修と専門家教育',
         'prog-tema4':           '統合・補完医療（PICS）',
         'prog-tema5':           '公衆衛生における伝統療法の役割',
+        'nav-grade':            'スケジュール',
+        'overlay-grade':        '公式プログラム',
+        'grade-title':          '公式プログラム',
+        'grade-subtitle':       '2026年9月18日・19日 · サンタカタリーナ連邦大学 — 健康科学センター',
+        'grade-tab1-day':       '金曜日',
+        'grade-tab1-date':      '9月18日',
+        'grade-tab2-day':       '土曜日',
+        'grade-tab2-date':      '9月19日',
+        'grade-per-abertura':   '開会',
+        'grade-per-manha':      '午前',
+        'grade-per-tarde':      '午後',
+        'grade-s1-note':        '受付',
+        'grade-s9-note':        'テーマ：ブラジルにおける東洋伝統医学 — 歴史的背景と統一医療制度（SUS）への導入。招待講師の参加あり。',
+        'grade-s10-title':      '本日の閉会',
+        'grade-s10-note':       '第1回シンポジウムの参加者および協力者への感謝。',
+        'grade-d2-note':        '按摩・指圧・整体・操体法・接骨の違い。それぞれの適応をどう判断するか。',
+        'grade-finale-tag':     '文化的閉会行事',
+        'grade-finale-guest':   '招待アーティスト',
+        'grade-finale-lead':    '音楽・瞑想・儀礼 — 尺八コンサート',
+        'grade-finale-text':    '尺八の伝統的な楽曲と、ルイジ・アントニオ・イルランディーニ自身による現代作品を組み合わせ、音楽体験のさまざまな次元をたどるコンサート。伝統と創造、そして聴くことの出会いの場として特別に上演されます。',
+        'grade-local1':         '健康科学センター（CCS）— サンタカタリーナ連邦大学',
+        'grade-local2':         'ワークショップおよび実践活動',
         'realizador-label':     '主催者について',
         'realizador-name':      'Paulo Pierin Luz',
         'realizador-p1':        'パウロ・ピエリン・ルスは、サンタカタリーナ連邦大学（UFSC）体育学部卒業。ボディセラピスト、アロマセラピスト、日本の伝統療法研究者。2003年よりシアツを専門とし、東洋のセラピー芸術の研究・臨床・指導に生涯を捧げる。',
@@ -1638,7 +2286,7 @@
         'info-label-data':      '日程',
         'info-value-data':      '2026年9月18日・19日',
         'info-label-local':     '会場',
-        'info-value-local':     '健康科学センター（CSS）– 1階<br>サンタカタリーナ連邦大学<br>フロリアノポリス – SC',
+        'info-value-local':     '健康科学センター（CCS）– 1階<br>サンタカタリーナ連邦大学<br>フロリアノポリス – SC',
         'info-label-participacao': '参加費',
         'info-value-participacao': '無料',
         'info-tag':             '一般公開',
@@ -1665,6 +2313,18 @@
       document.getElementById('langToggle').textContent = currentLang === 'pt' ? '日本語' : 'Português';
       document.documentElement.lang = currentLang === 'pt' ? 'pt-BR' : 'ja';
     }
+
+    // --- Abas da programação oficial ---
+    document.querySelectorAll('.grade__tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.grade__tab').forEach(t => {
+          const active = t === tab;
+          t.classList.toggle('grade__tab--active', active);
+          t.setAttribute('aria-selected', active ? 'true' : 'false');
+          document.getElementById(t.dataset.day).hidden = !active;
+        });
+      });
+    });
 
     // --- Smooth scroll ---
     document.querySelectorAll('a[href^="#"]').forEach(link => {
